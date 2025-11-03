@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Drone Flight Simulator</title>
+    <link rel="stylesheet" href="drone-simulator.css">
+</head>
+<body>
+    <!-- Sky Background -->
+    <div class="sky-container">
+        <!-- Clouds -->
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        
+        <!-- Drone -->
+        <div class="drone-container" id="drone">
+            <img src="assets/drone.svg" alt="Drone" class="drone-image">
+            <div class="drone-shadow"></div>
+        </div>
+        
+        <!-- Telemetry Display -->
+        <div class="telemetry-panel">
+            <h3>TELEMETRY</h3>
+            <div class="telemetry-grid">
+                <div class="telemetry-item">
+                    <span class="label">THROTTLE:</span>
+                    <span class="value" id="throttle-value">0%</span>
+                </div>
+                <div class="telemetry-item">
+                    <span class="label">YAW:</span>
+                    <span class="value" id="yaw-value">0°</span>
+                </div>
+                <div class="telemetry-item">
+                    <span class="label">PITCH:</span>
+                    <span class="value" id="pitch-value">0%</span>
+                </div>
+                <div class="telemetry-item">
+                    <span class="label">ROLL:</span>
+                    <span class="value" id="roll-value">0%</span>
+                </div>
+            </div>
+            <div class="status-indicator">
+                <span class="status-dot" id="status-dot"></span>
+                <span id="status-text">DISCONNECTED</span>
+            </div>
+        </div>
+        
+        <!-- Connect Button -->
+        <button class="connect-button" id="connect-button">
+            <span class="button-icon">🚁</span>
+            CONNECT DRONE
+        </button>
+    </div>
+    
+    <!-- Transmitter Section -->
+    <div class="transmitter-container">
+        <img src="assets/transmitter.svg" alt="Transmitter" class="transmitter-image">
+        
+        <!-- Left Joystick (Throttle/Yaw) -->
+        <div class="joystick-container left-joystick" id="left-joystick-container">
+            <div class="joystick-base">
+                <div class="joystick-range-indicator"></div>
+                <div class="joystick-stick" id="left-stick">
+                    <div class="joystick-handle"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Joystick (Pitch/Roll) -->
+        <div class="joystick-container right-joystick" id="right-joystick-container">
+            <div class="joystick-base">
+                <div class="joystick-range-indicator"></div>
+                <div class="joystick-stick" id="right-stick">
+                    <div class="joystick-handle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Audio -->
+    <audio id="propeller-sound" loop>
+        <source src="assets/propeller_sound.mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- Instructions Overlay -->
+    <div class="instructions" id="instructions">
+        <div class="instructions-content">
+            <h2>🚁 DRONE FLIGHT SIMULATOR</h2>
+            <div class="instructions-grid">
+                <div class="instruction-item">
+                    <strong>LEFT STICK</strong>
+                    <p>↕️ Up/Down: Throttle (Altitude)</p>
+                    <p>↔️ Left/Right: Yaw (Rotation)</p>
+                </div>
+                <div class="instruction-item">
+                    <strong>RIGHT STICK</strong>
+                    <p>↕️ Up/Down: Pitch (Forward/Back)</p>
+                    <p>↔️ Left/Right: Roll (Strafe)</p>
+                </div>
+            </div>
+            <button class="start-button" id="start-button">START SIMULATOR</button>
+        </div>
+    </div>
+    
+    <script src="drone-simulator.js"></script>
+</body>
+</html>
